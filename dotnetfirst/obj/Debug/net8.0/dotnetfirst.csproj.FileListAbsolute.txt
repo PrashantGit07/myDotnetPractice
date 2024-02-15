@@ -12,3 +12,4 @@ D:\Dotnet\dotnetfirst\obj\Debug\net8.0\refint\dotnetfirst.dll
 D:\Dotnet\dotnetfirst\obj\Debug\net8.0\dotnetfirst.pdb
 D:\Dotnet\dotnetfirst\obj\Debug\net8.0\dotnetfirst.genruntimeconfig.cache
 D:\Dotnet\dotnetfirst\obj\Debug\net8.0\ref\dotnetfirst.dll
+D:\Dotnet\dotnetfirst\obj\Debug\net8.0\dotnetfirst.sourcelink.json
