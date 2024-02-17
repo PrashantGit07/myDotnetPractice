@@ -66,3 +66,27 @@
 //         Console.WriteLine("hello world");
 //     }
 // }
+
+
+// using System;
+// namespace Working;
+// class TryingSomething{
+
+//     public int a;
+
+//     public TryingSomething(int a){
+//         this.a = a;
+//     }
+//    public void GetValue(){
+//         System.Console.WriteLine("value is  : " + a);
+//     }
+
+
+//     class FinalRes{
+//         public static void Main(string[] args){
+//             TryingSomething t = new TryingSomething(15);
+//             t.GetValue();
+//         }
+//     }
+    
+// }
