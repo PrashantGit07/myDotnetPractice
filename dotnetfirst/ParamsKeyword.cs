@@ -1,0 +1,47 @@
+
+//params keyword in c# -->> params is a keyword takes varible  number of paramteres
+//it is useful when we do not know the number of arguments prior. only one params keyword is allowed.
+
+
+//example -1 -->> passing any number of arguments of integer type
+// using System;
+// class ParamsKeyword
+// {
+//     public void Display(params int[] arr)
+//     {
+//         for (int i = 0; i < arr.Length; i++)
+//         {
+//             System.Console.Write(arr[i] + " ");
+//         }
+//     }
+// }
+// class Answer
+// {
+//     public static void Main(string[] args)
+//     {
+//         ParamsKeyword p = new ParamsKeyword();
+//         p.Display(1, 2, 3, 4, 5, 6, 7, 9, 4, 5, 4, 9, 4, 6, 5, 4, 8, 9, 7, 8, 9, 5);
+
+//     }
+// }
+
+
+//we can pass any number of arguments of any number of data types using (object) keyword with (params)
+
+// using System;
+
+// class ParamsKeyword{
+//      public void Display(params object[] arr)
+//      {
+//         for(int i=0;i<arr.Length;i++){
+//             System.Console.Write(arr[i]+" ");
+//         }
+//      }
+// }
+
+// class Answer{
+//     public static void Main(string[] args){
+//         ParamsKeyword p = new ParamsKeyword();
+//         p.Display("hello" , 45,  07 , "bhai kaise hoo");
+//     }
+// }

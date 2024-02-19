@@ -20,8 +20,8 @@
 
 //     class AggregationClass1
 //     {
-//         // public int id;
-//         // public char grade;
+        // public int id;
+        // public char grade;
 //         public void Display()
 //         {
 //             System.Console.WriteLine("hello world");
@@ -30,8 +30,8 @@
 
 //     class AggregationClass2
 //     {
-//         //now to display has a relationship we can create object of above class and use its functionality
-//         //withour explicitly inheritence
+        //now to display has a relationship we can create object of above class and use its functionality
+        //withour explicitly inheritence
 //         public AggregationClass1 obj = new AggregationClass1();
 
 //     }
