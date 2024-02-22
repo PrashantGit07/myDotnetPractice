@@ -151,53 +151,53 @@
 
 
 
-using System;
+// using System;
 
-class FindDays
-{
-    public static void Main(string[] args)
-    {
-        Console.WriteLine("Enter the month name: ");
-        string month = Console.ReadLine();  
+// class FindDays
+// {
+//     public static void Main(string[] args)
+//     {
+//         Console.WriteLine("Enter the month name: ");
+//         string month = Console.ReadLine();  
 
-        switch (month.ToLower())  
-        {
-            case "january":
-              Console.WriteLine("31 days");
-                break;
-            case "march":
-              Console.WriteLine("31 days");
-                break;
-            case "may":
-              Console.WriteLine("31 days");
-                break;
-            case "july":
-              Console.WriteLine("31 days");
-                break;
-            case "august":
-              Console.WriteLine("31 days");
-                break;
-            case "october":
-              Console.WriteLine("31 days");
-                break;
-            case "december":
-                Console.WriteLine("31 days");
-                break;
-            case "february":
-                Console.WriteLine("Enter the year: ");
-                int n = Convert.ToInt32(Console.ReadLine());
-                if (n % 4 == 0 && (n % 100 != 0 || n % 400 == 0))  
-                {
-                    Console.WriteLine("This is a leap year and has 29 days");
-                }
-                else
-                {
-                    Console.WriteLine("28 days");
-                }
-                break;
-            default:
-                Console.WriteLine("Invalid input");
-                break;
-        }
-    }
-}
+//         switch (month.ToLower())  
+//         {
+//             case "january":
+//               Console.WriteLine("31 days");
+//                 break;
+//             case "march":
+//               Console.WriteLine("31 days");
+//                 break;
+//             case "may":
+//               Console.WriteLine("31 days");
+//                 break;
+//             case "july":
+//               Console.WriteLine("31 days");
+//                 break;
+//             case "august":
+//               Console.WriteLine("31 days");
+//                 break;
+//             case "october":
+//               Console.WriteLine("31 days");
+//                 break;
+//             case "december":
+//                 Console.WriteLine("31 days");
+//                 break;
+//             case "february":
+//                 Console.WriteLine("Enter the year: ");
+//                 int n = Convert.ToInt32(Console.ReadLine());
+//                 if (n % 4 == 0 && (n % 100 != 0 || n % 400 == 0))  
+//                 {
+//                     Console.WriteLine("This is a leap year and has 29 days");
+//                 }
+//                 else
+//                 {
+//                     Console.WriteLine("28 days");
+//                 }
+//                 break;
+//             default:
+//                 Console.WriteLine("Invalid input");
+//                 break;
+//         }
+//     }
+// }
