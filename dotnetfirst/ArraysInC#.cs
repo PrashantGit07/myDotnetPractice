@@ -6,7 +6,7 @@
 // {
 //     public static void Main(string[] args)
 //     {
-         
+
 
 //         //single dimensional arrays
 
@@ -32,18 +32,12 @@
 
 
 
-//multidimensional arrays
 // using System;
 // class MultiDArray{
 //     public static void Main(string[] args){
-//         int[,] multiD = {{1,2,3} , {4,5,6} , {7,8,6}};
-        
-//         // Console.WriteLine("enter the elements for 2D array ->>");
-//         // for(int i=0;i<3;i++){
-//         //     for(int j=0;j<3;j++){
-//         //         multiD[i,j] = Convert.ToInt32(Console.ReadLine());
-//         //     }
-//         // }
+//         int[,] multiD = {{0,10,0} , {0,0,20} , {30,0,0}};
+
+
 //         for(int i=0;i<3;i++){
 //             for(int j=0;j<3;j++){
 //                 System.Console.Write(multiD[i,j]+ " \t ");
@@ -53,3 +47,4 @@
 //         }
 //     }
 // }
+
