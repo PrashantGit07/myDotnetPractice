@@ -146,36 +146,36 @@
 
 //in c++ i use unordered map , here i use dictionary because c# does not support unorderedmap
 
-using System;
-class Program{
+// using System;
+// class Program{
 
-    static void Main(string[] args){
-        int[] arr = {1,2,3,1,2,3,4,4,5,9};
-        int[] res = RemoveDuplicates(arr);
+//     static void Main(string[] args){
+//         int[] arr = {1,2,3,1,2,3,4,4,5,9};
+//         int[] res = RemoveDuplicates(arr);
 
-        // Array.Reverse
-        System.Console.WriteLine("this is our input arra -> [1,2,3,1,2,3,4,4,5,9]");
-        for(int i=0;i<res.Length;i++){
-            System.Console.Write( res[i]+" ");
-        }
-    }
-    static int[] RemoveDuplicates(int[] arr)
-    {
-        Dictionary<int,bool> d = new Dictionary<int,bool>();
-        List<int> l = new List<int>();
+//         // Array.Reverse
+//         System.Console.WriteLine("this is our input arra -> [1,2,3,1,2,3,4,4,5,9]");
+//         for(int i=0;i<res.Length;i++){
+//             System.Console.Write( res[i]+" ");
+//         }
+//     }
+//     static int[] RemoveDuplicates(int[] arr)
+//     {
+//         Dictionary<int,bool> d = new Dictionary<int,bool>();
+//         List<int> l = new List<int>();
 
-        for(int i=0;i<arr.Length;i++){
-            if(!d.ContainsKey(arr[i])){
-                //it checks if the element is not present in the dictionary 
-                //if not it adds in it and also in the list as well
-                //now we know that dictionary will store only unique elements
-                d[arr[i]] = true;
-                l.Add(arr[i]);
-            }
+//         for(int i=0;i<arr.Length;i++){
+//             if(!d.ContainsKey(arr[i])){
+//                 //it checks if the element is not present in the dictionary 
+//                 //if not it adds in it and also in the list as well
+//                 //now we know that dictionary will store only unique elements
+//                 d[arr[i]] = true;
+//                 l.Add(arr[i]);
+//             }
 
-            //we can do it without list as well
-            if(!d.ContainsKey(arr[i])){)
-        }
-        return l.ToArray();
-    }
-}
+//             //we can do it without list as well
+//             if(!d.ContainsKey(arr[i])){)
+//         }
+//         return l.ToArray();
+//     }
+// }
