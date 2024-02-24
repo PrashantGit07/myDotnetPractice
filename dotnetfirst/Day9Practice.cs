@@ -303,35 +303,35 @@
 
 
 
-using System;
-class Program
-{
-    public static void Main(string[] args)
-    {
+// using System;
+// class Program
+// {
+//     public static void Main(string[] args)
+//     {
 
-        int[,] arr = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
+//         int[,] arr = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
 
-        int r = arr.GetLength(0);
-        int c = arr.GetLength(1);
-        //initialize the maximum array to store maximum row and column values
-        int mxarr = arr[0, 0];
-        int mxr = 0;
-        int mxc = 0;
+//         int r = arr.GetLength(0);
+//         int c = arr.GetLength(1);
+//         //initialize the maximum array to store maximum row and column values
+//         int mxarr = arr[0, 0];
+//         int mxr = 0;
+//         int mxc = 0;
 
 
-        for (int i = 0; i < r; i++)
-        {
-            for (int j = 0; j < c; j++)
-            {
-                if (arr[i, j] > mxarr)
-                {
-                    mxarr = arr[i, j];
-                    mxr = i;
-                    mxc = j;
-                }
-            }
-        }
-        Console.WriteLine("Largest Element: " + mxarr);
-        Console.WriteLine("Position: Row " + (mxr + 1) + ", Column " + (mxc + 1));
-    }
-}
+//         for (int i = 0; i < r; i++)
+//         {
+//             for (int j = 0; j < c; j++)
+//             {
+//                 if (arr[i, j] > mxarr)
+//                 {
+//                     mxarr = arr[i, j];
+//                     mxr = i;
+//                     mxc = j;
+//                 }
+//             }
+//         }
+//         Console.WriteLine("Largest Element: " + mxarr);
+//         Console.WriteLine("Position: Row " + (mxr + 1) + ", Column " + (mxc + 1));
+//     }
+// }
