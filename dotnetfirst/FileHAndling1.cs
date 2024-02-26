@@ -2,19 +2,15 @@
 
 //writing a byte into the file
 // using System;
-// using System.IO;
-// class FileStreamClass
-// {
-//     public static void Main(string[] args)
-//     {
-//         //to give a path of current directory
-//         string path = "b.txt";
-//         string fullpath = Path.Combine(Environment.CurrentDirectory , path);
-//         FileStream f = new FileStream( fullpath, FileMode.OpenOrCreate);//creating file stream  
-//         f.WriteByte(65);//writing byte into stream  
-//         System.Console.WriteLine("file has been created");
-//         f.Close();//closing stream  
-//         System.Console.WriteLine("closed the file");
+// class FileStreamClass{
+//     public static void Main(string[] args){
+//         string path = "d.txt";
+//         string fullpath = Path.GetFullPath(path);
+
+//         FileStream f = new FileStream(fullpath , FileMode.OpenOrCreate);
+//         f.WriteByte(65);
+//         System.Console.WriteLine("file created and written");
+//         f.Close();
 //     }
 // }
 
@@ -49,7 +45,7 @@
 // {
 //     public static void Main(string[] args)
 //     {
-//         string path = "b.txt";
+//         string path = "c.txt";
 //         string fullpath = Path.Combine(Environment.CurrentDirectory, path);
 
 //         using (FileStream f = new FileStream(fullpath, FileMode.OpenOrCreate))
@@ -67,4 +63,24 @@
 //         }
 //         System.Console.WriteLine("done ");
 //     }
+// }
+
+
+// using System;
+// class Program
+// {
+//     public static void Main(string[] args)
+//     {
+//         string path = "c.txt";
+//         string fullpath = Path.GetFullPath(path);
+
+//         FileStream fs = new FileStream(fullpath, FileMode.OpenOrCreate);
+//         int i = 0;
+//         while ((i = fs.ReadByte()) != -1)
+//         {
+//             System.Console.Write((char)i + " ");
+//         }
+//         fs.Close();
+//     }
+
 // }

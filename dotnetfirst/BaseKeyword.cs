@@ -1,5 +1,7 @@
 //base keyword
-//using base keyword we can access methids and fields of base class inside dereived class if they have same name
+//using base keyword we can access methods and fields of base class inside dereived class if they have same name
+
+//we use (base.memberFunction/variable) to access the methods of parent class
 //this is a kind of super keyword in c++
 
 
@@ -29,3 +31,4 @@
 //         }
 //     }
 // }
+ 

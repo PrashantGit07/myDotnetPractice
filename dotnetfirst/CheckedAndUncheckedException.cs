@@ -30,3 +30,4 @@
 
 //system exception -->>
 //system expections is a predefined exception class in c#. it is used  to handle system exceptions. it works as a base class for system exceptions namespace. it has various child classes like validation exceptions, argument exceptions , stackOverflow exceptions , indexoutOfBounds exceptions like this.
+ 
