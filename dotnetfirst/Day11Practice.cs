@@ -175,43 +175,92 @@
 // }
 
 
-using System;
+// using System;
 
-public class MyClass
-{
-    private int myField;
+// public class MyClass
+// {
+//     private int myField;
 
-    // Property with a getter and a setter
-    public int MyProperty
-    {
-        get
-        {
-            return myField; // Getter method
-        }
-        set
-        {
-            myField = value; // Setter method
-        }
-    }
+//     // Property with a getter and a setter
+//     public int MyProperty
+//     {
+//         get
+//         {
+//             return myField; // Getter method
+//         }
+//         set
+//         {
+//             myField = value; // Setter method
+//         }
+//     }
 
-    public MyClass(int value)
-    {
-        MyProperty = value; // Using the setter method
-    }
-}
+//     public MyClass(int value)
+//     {
+//         MyProperty = value; // Using the setter method
+//     }
+// }
 
-class Program
-{
-    static void Main(string[] args)
-    {
-        MyClass obj = new MyClass(10);
+// class Program
+// {
+//     static void Main(string[] args)
+//     {
+//         MyClass obj = new MyClass(10);
 
-        // Using the getter method
-        int retrievedValue = obj.MyProperty;
-        Console.WriteLine("Value retrieved using getter: " + retrievedValue);
+//         // Using the getter method
+//         int retrievedValue = obj.MyProperty;
+//         Console.WriteLine("Value retrieved using getter: " + retrievedValue);
 
-        // Using the setter method
-        obj.MyProperty = 20;
-        Console.WriteLine("Value set using setter: " + obj.MyProperty);
-    }
-}
+//         // Using the setter method
+//         obj.MyProperty = 20;
+//         Console.WriteLine("Value set using setter: " + obj.MyProperty);
+//     }
+// }
+
+
+// using System;
+
+// public class MyClass
+// {
+//     private bool isAuthenticated;
+
+   
+//     public bool IsAuthenticated
+//     {
+//         get { return isAuthenticated; }
+//         private set { isAuthenticated = value; }
+//     }
+
+  
+//     public void Authenticate()
+//     {
+         
+//         IsAuthenticated = true;
+//         Console.WriteLine("User authenticated successfully.");
+//     }
+
+//     // Method to access a secured feature
+//     public void AccessSecuredFeature()
+//     {    
+//         if (!IsAuthenticated)
+//         {
+//             Console.WriteLine("Error: User is not authenticated. Access denied.");
+//             return;
+//         }
+
+//         // Access the secured feature
+//         Console.WriteLine("Accessing secured feature...");
+//     }
+// }
+
+// class Program
+// {
+//     static void Main(string[] args)
+//     {
+//         MyClass obj = new MyClass();
+
+//         obj.AccessSecuredFeature();
+
+//        obj.Authenticate();
+// obj.AccessSecuredFeature();
+//     }
+// }
