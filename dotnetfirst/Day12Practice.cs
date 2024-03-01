@@ -292,76 +292,76 @@
 
 
 
-using System;
-using System.Collections.Generic;
+// using System;
+// using System.Collections.Generic;
 
-class Employee
-{
-    public string Name { get; set; }
-    public int Age { get; set; }
-    public string Address { get; set; }
-    public string Technology { get; set; }
-    public int EmployeeId { get; private set; }
+// class Employee
+// {
+//     public string Name { get; set; }
+//     public int Age { get; set; }
+//     public string Address { get; set; }
+//     public string Technology { get; set; }
+//     public int EmployeeId { get; private set; }
 
-    private static int nextId = 1;
+//     private static int nextId = 1;
       
-    public Employee(string name, int age, string address, string technology)
-    {
-        Name = name;
-        Age = age;
-        Address = address;
-        Technology = technology;
-        EmployeeId = nextId++;
-    }
+//     public Employee(string name, int age, string address, string technology)
+//     {
+//         Name = name;
+//         Age = age;
+//         Address = address;
+//         Technology = technology;
+//         EmployeeId = nextId++;
+//     }
 
-    public void DisplayEmployeeDetails()
-    {
-        Console.WriteLine("Welcome {0} to Netsmartz", Name);
-        Console.WriteLine("Employee ID: " + EmployeeId);
-        Console.WriteLine("Name: " + Name);
-        Console.WriteLine("Age: " + Age);
-        Console.WriteLine("Address: " + Address);
-        Console.WriteLine("Technology: " + Technology);
-    }
-}
+//     public void DisplayEmployeeDetails()
+//     {
+//         Console.WriteLine("Welcome {0} to Netsmartz", Name);
+//         Console.WriteLine("Employee ID: " + EmployeeId);
+//         Console.WriteLine("Name: " + Name);
+//         Console.WriteLine("Age: " + Age);
+//         Console.WriteLine("Address: " + Address);
+//         Console.WriteLine("Technology: " + Technology);
+//     }
+// }
 
-class Program
-{
-    static void Main(string[] args)
-    {
-        Console.WriteLine("Welcome to Netsmartz");
+// class Program
+// {
+//     static void Main(string[] args)
+//     {
+//         Console.WriteLine("Welcome to Netsmartz");
 
-        List<Employee> employees = new List<Employee>();
+//         List<Employee> employees = new List<Employee>();
 
-        while (true)
-        {
-            Console.WriteLine("Please submit employee details or type 'exit' to finish:");
-            Console.Write("Name: ");
-            string name = Console.ReadLine()?.Trim() ?? "";
+//         while (true)
+//         {
+//             Console.WriteLine("Please submit employee details or type 'exit' to finish:");
+//             Console.Write("Name: ");
+//             string name = Console.ReadLine()?.Trim() ?? "";
 
-            if (name.ToLower() == "exit")
-                break;
+//             if (name.ToLower() == "exit")
+//                 break;
 
-            Console.Write("Age: ");
-            int age = Convert.ToInt32(Console.ReadLine());
+//             Console.Write("Age: ");
+//             int age = Convert.ToInt32(Console.ReadLine());
 
-            Console.Write("Address: ");
-            string address = Console.ReadLine()?.Trim() ?? "";
+//             Console.Write("Address: ");
+//             string address = Console.ReadLine()?.Trim() ?? "";
 
-            Console.Write("Technology: ");
-            string technology = Console.ReadLine()?.Trim() ?? "";
+//             Console.Write("Technology: ");
+//             string technology = Console.ReadLine()?.Trim() ?? "";
 
-            // Create an employee object
-            Employee employee = new Employee(name, age, address, technology);
-            employees.Add(employee);
-        }
+//             // Create an employee object
+//             Employee employee = new Employee(name, age, address, technology);
+//             employees.Add(employee);
+//         }
 
-        // Display employee details
-        Console.WriteLine("\nEmployee Details:");
-        foreach (var employee in employees)
-        {
-            employee.DisplayEmployeeDetails();
-            Console.WriteLine();
-        }
-    }
-}
+//         // Display employee details
+//         Console.WriteLine("\nEmployee Details:");
+//         foreach (var employee in employees)
+//         {
+//             employee.DisplayEmployeeDetails();
+//             Console.WriteLine();
+//         }
+//     }
+// }
