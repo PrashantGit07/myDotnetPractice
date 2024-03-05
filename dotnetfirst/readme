@@ -1,0 +1,27 @@
+// struct vs class
+
+
+//class
+class is blueprint of the object which contains propert and behavior of the object
+class is used for the complex data structure and when we need to implement inheritance and polymorphism abstraction features
+
+class is used when we want to work with reference types
+
+
+
+
+//Struct
+
+struct is somewhat similat to class , but struct is used when we want to group similiar data 
+and when we want to work with small data structures and make simple programs that does not require features like inheritance and polymorphism.
+
+struct are value type  , so they are much efficient in memory management than classes
+struct can not implement inheritance but it can implement interfaces.
+
+
+
+
+//enums
+enums are used to group the related constants in a more concise and clear way.
+each member of enum has an inetger value associated with it.
+we can not created method inside it
