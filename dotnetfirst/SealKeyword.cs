@@ -1,4 +1,4 @@
-//using seaal keyword we can prevent a class from being derived
+// using seal keyword we can prevent a class from being derived/inherited
 // using System;
 
 // sealed class Parent{
@@ -6,16 +6,24 @@
 //         System.Console.WriteLine("From parent class");
 //     }
 // }
-// class Child:Parent{
+// class Child:Parent{   --->> this will show error because we can not inherit sealed class
 //     public void Getvalue(){
 //         System.Console.WriteLine("from child");
 //     }
 // }
 
+// class Child{
+//         public void Display(){
+//                 System.Console.WriteLine("Hello, World!");
+//         }
+// }
 // class Answer{
 //     public static void Main(string[] args){
 //         Child ch = new Child();
-        // ch.Display();   -->>> now this line will show error as we have sealed the parent class and now it can not be dreived
-//         ch.Getvalue();
+
+//         ch.Display();    
+
+//         Parent p = new Parent();
+//         p.Display();
 //     }
 // }

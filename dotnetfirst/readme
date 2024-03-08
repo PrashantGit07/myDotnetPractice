@@ -25,3 +25,10 @@ struct can not implement inheritance but it can implement interfaces.
 enums are used to group the related constants in a more concise and clear way.
 each member of enum has an inetger value associated with it.
 we can not created method inside it
+
+
+
+
+in polymorphism , we can call data members of the base class from derived class by giving reference of base class to the object of derived class
+
+structs are inpmlicityly sealed , so we can not inherit them
