@@ -1,5 +1,5 @@
 // using System;
-// using Microsoft.VisualBasic;
+// using System.Collections.Generic;
 
 // interface IOrderable
 // {
@@ -17,68 +17,66 @@
 //     double CalculateAndApplyDiscount();
 // }
 
-
 // public class MenuItems : IOrderable
 // {
-
 //     public double price = 0;
 //     public Dictionary<string, double> Items { get; set; }
 //     public int Quantity { get; set; }
 
-//     Dictionary<string, double> Beverages { get; }
+//     public Dictionary<string, double> Beverages { get; set; } // Making Beverages accessible outside
+
 //     public void DisplayDetails()
 //     {
 //         foreach (var item in Items)
 //         {
-//             System.Console.WriteLine("Name : " + item.Key + "Price : " + item.Value);
+//             Console.WriteLine("Name: " + item.Key + " Price: " + item.Value);
 //         }
-//         System.Console.WriteLine("Quantity : " + Quantity);
+//         Console.WriteLine("Quantity: " + Quantity);
 //         foreach (var beverages in Beverages)
 //         {
-//             System.Console.WriteLine("available beverages : " + beverages);
+//             Console.WriteLine("Available beverages: " + beverages);
 //         }
 //     }
 
 //     public double CalculatePrice()
 //     {
-//         System.Console.WriteLine("The price of the item is  :");
 
-//         foreach (var itme in Items)
+
+//         double totalPrice = 0;
+
+//         foreach (var item in Items)
 //         {
-
-//             price += itme.Value;
+//             totalPrice += item.Value;
 //         }
-//         return price * Quantity;
+
+//         return totalPrice * Quantity;
 //     }
+
 // }
 
 // class Customers
 // {
-//     string? name { get; set; }
-//     string? address { get; set; }
+//     public string? name { get; set; } // Making name accessible outside
+//     public string? address { get; set; } // Making address accessible outside
 
-//     public Dictionary<string, int> orders { get; set; }
-
-
+//     public Dictionary<string, int> orders { get; set; } = new Dictionary<string, int>(); // Initialize orders
 // }
 
 // class Order
 // {
 //     public void OrdersByCustomer(Customers customers)
 //     {
-//         foreach (var items in customers.orders)
+
+//         foreach (var item in customers.orders)
 //         {
-//             System.Console.WriteLine("Orderes placed by customer : ");
-//             System.Console.WriteLine(items);
+//             Console.WriteLine($"Item: {item.Key}, Quantity: {item.Value}");
 //         }
 //     }
 // }
 
 // class DiscountManager : IDiscountable
 // {
-
 //     MenuItems menuItems = new MenuItems();
-
 //     double discount;
 //     Customers customers = new Customers();
 
@@ -86,55 +84,99 @@
 
 //     public double CalculateAndApplyDiscount()
 //     {
-//         int cnt = 0;
-//         foreach (var itmes in customers.orders)
+//         double totalPrice = 0;
+
+//         foreach (var item in customers.orders)
 //         {
-//             cnt += itmes.Value;
-//             if (customers.orders.ContainsKey("Cold drink"))
+            
+//             totalPrice += menuItems.Items[item.Key] * item.Value;
+
+//             // Check if the quantity of any item exceeds 3
+//             if (item.Value > 3)
 //             {
-//                 System.Console.WriteLine("we offer cold drink of 200ml free of cost along with the ordered items");
+                 
+//                 discount += menuItems.Items[item.Key] * item.Value * 0.10;
 //             }
 //         }
-//         if (cnt > 3)
+
+//         // Display offer for Cold Drink
+//         if (customers.orders.ContainsKey("Cold drink"))
 //         {
-//             discount = menuItems.CalculatePrice() * 0.10;
+//             Console.WriteLine("We offer cold drink of 200ml free of cost along with the ordered items");
 //         }
 
-//         else
-//         {
-//             discount = 0;
-//         }
 //         return discount;
 //     }
+
 // }
 
-
-// class RestaturentManagement
+// class RestaurantManagement
 // {
 //     public static void Main(string[] args)
 //     {
-
 //         DiscountManager discountManager = new DiscountManager();
 //         Customers customers = new Customers();
 //         Order order = new Order();
 //         MenuItems menuItems = new MenuItems();
 
 //         menuItems.Items = new Dictionary<string, double>
-//        {
-//         {"Pizza" , 25.0},
-//         {"Burher" , 15.0},
-//         {"Momos" ,15.0},
-//         {"Spring Rolls" ,50.0}
-//        };
+//         {
+//             {"Pizza", 25.0},
+//             {"Burger", 15.0},
+//             {"Momos", 15.0},
+//             {"Spring Rolls", 50.0}
+//         };
 
-//         System.Console.WriteLine("Welcome to iconic restross ");
-//         System.Console.WriteLine("These are the list of available items : ");
+//         Console.WriteLine("Welcome to iconic restross");
+//         Console.WriteLine("These are the list of available items:");
 //         foreach (var dish in menuItems.Items)
 //         {
-//             System.Console.WriteLine(dish);
+//             Console.WriteLine(dish);
 //         }
 
-//         System.Console.WriteLine("So! what you'd like to have :");
+//         Console.WriteLine("So! What would you like to have:");
 //         string? orderThis = Console.ReadLine();
+
+//         Console.WriteLine("How many quantity:");
+//         int quantity = Convert.ToInt32(Console.ReadLine());
+
+        
+//         // Checking if the ordered item exists in the menu
+//         if (menuItems.Items.ContainsKey(orderThis ?? ""))
+//         {
+//             Console.WriteLine("Your order is being prepared");
+//         }
+//         else
+//         {
+//             Console.WriteLine("Sorry! The dish is not available");
+//             return; // Exit the program if the dish is not available
+//         }
+
+//         // Adding order to customers
+//         customers.orders.Add(orderThis ?? "", quantity);
+
+//         Console.WriteLine("Total orders given by customer:");
+//         order.OrdersByCustomer(customers);
+
+//         menuItems.Quantity = quantity;
+      
+
+//         System.Console.WriteLine("Order is being prepared");
+//         order.OrdersByCustomer(customers);
+
+//         int totalQuantity = customers.orders.Values.Sum();
+//         double discount = 0;
+
+//         if (quantity > 3)
+//         {
+//             discount = discountManager.CalculateAndApplyDiscount();
+//             System.Console.WriteLine("Discount applied : " + discount);
+//         }
+
+
+//         double totalBill = menuItems.CalculatePrice() - discount;
+//         Console.WriteLine($"Total bill: {totalBill}");
+
+
 //     }
 // }

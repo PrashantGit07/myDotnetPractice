@@ -16,7 +16,7 @@
 //     private int id{get;set;}
 //     private string? name{get;set;}
 
-    
+
 // }
 
 // class Program
@@ -41,7 +41,7 @@
 // }
 
 // class Child:ProtectedSpecifier{
-    
+
 //     public void SetValues(int newId , string? newName){
 //         newId = id;
 //         newName = name;
@@ -113,5 +113,88 @@
 //         DerivedProtectedInternalClass derivedProtectedInternalClass = new DerivedProtectedInternalClass();
 
 //         derivedProtectedInternalClass.DisplayHere();
+//     }
+// }
+
+
+
+
+
+
+
+// using System;
+
+// public class BankAccount
+// {
+//     private string accountNumber;
+//     private decimal balance;
+
+//     public int AccountNumber { get; private set; }
+//     public decimal Balance { get; private set; }
+
+//     public BankAccount(int accountNumber, decimal initialBalance)
+//     {
+//         AccountNumber = accountNumber;
+//         Balance = initialBalance;
+//     }
+
+//     public void Deposit(decimal amount)
+//     {
+//         if (amount <= 0)
+//         {
+//             Console.WriteLine("Invalid deposit amount.");
+//             return;
+//         }
+
+//         Balance += amount;
+//         System.Console.WriteLine("Deposited : " + amount);
+//         System.Console.WriteLine("Total : " + Balance);
+//     }
+
+//     public void Withdraw(decimal amount)
+//     {
+//         if (amount <= 0)
+//         {
+//             Console.WriteLine("Invalid withdrawal amount.");
+//             return;
+//         }
+
+//         if (amount > Balance)
+//         {
+//             Console.WriteLine("Insufficient funds.");
+//             return;
+//         }
+
+//         Balance -= amount;
+//         System.Console.WriteLine("Withdraw amount : " + amount);
+//         System.Console.WriteLine("Current balance :" + Balance);
+//     }
+// }
+
+// class Program
+// {
+//     static void Main(string[] args)
+//     {
+//         System.Console.WriteLine("enter your account number  :");
+//         int AccountNumber = Convert.ToInt32(Console.ReadLine());
+
+
+//         BankAccount account = new BankAccount(AccountNumber, 1000m);
+
+
+//         System.Console.WriteLine("Account number : " + account.AccountNumber);
+//         System.Console.WriteLine("Current balance : " + account.Balance);
+
+//         System.Console.WriteLine("Enter depostit amount : ");
+//         int dep = Convert.ToInt32(Console.ReadLine());
+//         account.Deposit(dep);
+
+//         System.Console.WriteLine("Enter depostit amount : ");
+//         int withdraw = Convert.ToInt32(Console.ReadLine());
+//         account.Withdraw(withdraw);
+
+
+//         System.Console.WriteLine("Account number : " + account.AccountNumber);
+//         System.Console.WriteLine("Current balance : " + account.Balance);
 //     }
 // }
