@@ -16,30 +16,40 @@
 //             Console.WriteLine("3 - View booked seats");
 //             Console.WriteLine("4 - Exit");
 //             Console.Write("Enter your choice: ");
-            
-//             if (!int.TryParse(Console.ReadLine(), out choice))
-//             {
-//                 Console.WriteLine("Invalid choice. Please enter a number.");
-//                 continue;
-//             }
 
-//             switch (choice)
+//             try
 //             {
-//                 case 1:
-//                     CheckAvailableSeats();
-//                     break;
-//                 case 2:
-//                     BookSeat();
-//                     break;
-//                 case 3:
-//                     ViewBookedSeats();
-//                     break;
-//                 case 4:
-//                     Console.WriteLine("Exiting program...");
-//                     break;
-//                 default:
-//                     Console.WriteLine("Invalid choice. Please enter a number between 1 and 4.");
-//                     break;
+//                 if (!int.TryParse(Console.ReadLine(), out choice))
+//                 {
+//                     throw new FormatException("Invalid choice. Please enter a number.");
+//                 }
+
+//                 switch (choice)
+//                 {
+//                     case 1:
+//                         CheckAvailableSeats();
+//                         break;
+//                     case 2:
+//                         BookSeat();
+//                         break;
+//                     case 3:
+//                         ViewBookedSeats();
+//                         break;
+//                     case 4:
+//                         Console.WriteLine("Exiting program...");
+//                         break;
+//                     default:
+//                         Console.WriteLine("Invalid choice. Please enter a number between 1 and 4.");
+//                         break;
+//                 }
+//             }
+//             catch (FormatException ex)
+//             {
+//                 Console.WriteLine(ex.Message);
+//             }
+//             catch (Exception ex)
+//             {
+//                 Console.WriteLine($"An error occurred: {ex.Message}");
 //             }
 
 //         } while (choice != 4);
@@ -50,7 +60,6 @@
 //         Console.WriteLine("Available seats:");
 //         for (int i = 1; i <= 8; i++)
 //         {
-//             //here i am checkig if the available seats are also present in the list of booked seats then it means that seat is already booked and if not then it is displayed as availabel seats
 //             if (!bookedSeats.Contains(i))
 //             {
 //                 Console.Write(i + " ");
@@ -61,28 +70,37 @@
 
 //     static void BookSeat()
 //     {
-//         Console.Write("Enter seat number to book: ");
-//         int seatNumber;
-//         if (!int.TryParse(Console.ReadLine(), out seatNumber))
+//         try
 //         {
-//             Console.WriteLine("Invalid seat number. Please enter a number.");
-//             return;
-//         }
+//             Console.Write("Enter seat number to book: ");
+//             int seatNumber = Convert.ToInt32(Console.ReadLine());
 
-//         if (seatNumber < 1 || seatNumber > 8)
-//         {
-//             Console.WriteLine("Invalid seat number. Please enter a number between 1 and 8.");
-//             return;
-//         }
+//             if (seatNumber < 1 || seatNumber > 8)
+//             {
+//                 throw new ArgumentException("Invalid seat number. Please enter a number between 1 and 8.");
+//             }
 
-//         if (bookedSeats.Contains(seatNumber))
-//         {
-//             Console.WriteLine("Seat is already booked.");
+//             if (bookedSeats.Contains(seatNumber))
+//             {
+//                 Console.WriteLine("Seat is already booked.");
+//             }
+//             else
+//             {
+//                 bookedSeats.Add(seatNumber);
+//                 Console.WriteLine(seatNumber + " booked successfully");
+//             }
 //         }
-//         else
+//         catch (FormatException)
 //         {
-//             bookedSeats.Add(seatNumber);
-//             System.Console.WriteLine(seatNumber + " booked successfully");
+//             Console.WriteLine("Invalid seat number format. Please enter a valid number.");
+//         }
+//         catch (ArgumentException ex)
+//         {
+//             Console.WriteLine(ex.Message);
+//         }
+//         catch (Exception ex)
+//         {
+//             Console.WriteLine($"An error occurred: {ex.Message}");
 //         }
 //     }
 

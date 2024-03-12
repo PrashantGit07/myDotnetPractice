@@ -1,16 +1,16 @@
-using System;
-class StringMethods
-{
+// using System;
+// class StringMethods
+// {
 
-    public static void Main(string[] args)
-    {
+    // public static void Main(string[] args)
+    // {
         //compare ordinal - to compare two stings based on the numeric values of correspodning characters
 
         // string? s1 = "Hello";
         // string? s2 = "HelloIAMDavid";
         // string? s2 = "Mello";
         // string? s3 = "khello";
-        string[] s4 = { "he", "is", "from", "Lucknow" };
+        // string[] s4 = { "he", "is", "from", "Lucknow" };
 
         // System.Console.WriteLine(string.CompareOrdinal(s2, s1));
 
@@ -54,8 +54,8 @@ class StringMethods
         // System.Console.WriteLine(string.Join(" " , s4));
 
 
-        //lastIndexOf - returns the last index of the the specified charcater
-        string s5 = "heheheheheloow";
+        // lastIndexOf - returns the last index of the the specified charcater
+        // string s5 = "heheheheheloow";
         // System.Console.WriteLine(s5.LastIndexOf("h"));
 
         //lastIndexOfAny - we can find the last occurence of one or more character
@@ -98,14 +98,14 @@ class StringMethods
 
         //PadLeft() - to increase width of the string or increase sequence of character in Left , we use padLeft(totalWidth , Paddingcharacter) , totalwidth means how many  characters i want in the resulting string, and character means we put the vharacter we want to add extra
 
-        System.Console.WriteLine(s5.PadLeft(20 , '+'));
+        // System.Console.WriteLine(s5.PadLeft(20 , '+'));
 
 
         //PadRight() - same is with right padding
-        System.Console.WriteLine(s5.PadRight(20,'+'));
+        // System.Console.WriteLine(s5.PadRight(20,'+'));
 
         //TolowerInvarient() - it is used to convert the letters into lower case using universal standards not according to user's local setting or language
         //same is with ToUppperVarient()
-    }
+    // }
 
-}
+// }

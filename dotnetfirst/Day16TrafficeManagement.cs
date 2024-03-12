@@ -2,7 +2,7 @@
 
 // namespace TrafficManagement
 // {
-//     //   interface to represent common behaviors of entities in traffic management
+//     // Interface to represent common behaviors of entities in traffic management
 //     interface IBehaviors
 //     {
 //         void Move();
@@ -10,7 +10,7 @@
 //         void InteractWithTrafficSignals();
 //     }
 
-//     //  base class for vehicles implementing the IBehaviors interface
+//     // Base class for vehicles implementing the IBehaviors interface
 //     class Vehicle : IBehaviors
 //     {
 //         public void Move()
@@ -29,7 +29,7 @@
 //         }
 //     }
 
-//     //  subclass for cars inheriting from the Vehicle class
+//     // Subclass for cars inheriting from the Vehicle class
 //     class Car : Vehicle
 //     {
 //         // Additional functionality specific to cars
@@ -39,7 +39,7 @@
 //         }
 //     }
 
-//     //  subclass for pedestrians implementing the IBehaviors interface
+//     // Subclass for pedestrians implementing the IBehaviors interface
 //     class Pedestrian : IBehaviors
 //     {
 //         public void Move()
@@ -58,10 +58,9 @@
 //         }
 //     }
 
-//     // class for traffic signals
+//     // Class for traffic signals
 //     class TrafficSignal
 //     {
-
 //         public void ChangeSignal(string color)
 //         {
 //             Console.WriteLine("Traffic signal changed to " + color);
@@ -74,40 +73,43 @@
 //         {
 //             TrafficSignal signal = new TrafficSignal();
 
-//             Car myCar = new Car();
-//             signal.ChangeSignal("Green");
-//             myCar.Move();
+//             try
+//             {
+//                 Car myCar = new Car();
+//                 signal.ChangeSignal("Green");
+//                 myCar.Move();
 
-//             System.Console.WriteLine();
-//             signal.ChangeSignal("Red");
-//             myCar.Stop();
+//                 Console.WriteLine();
+//                 signal.ChangeSignal("Red");
+//                 myCar.Stop();
 
+//                 Console.WriteLine();
 
-//             System.Console.WriteLine();
+//                 signal.ChangeSignal("Yellow");
+//                 myCar.InteractWithTrafficSignals();
+//                 myCar.BlowHorn();
 
-//             signal.ChangeSignal("Yellow");
-//             myCar.InteractWithTrafficSignals();
-//             myCar.BlowHorn();
+//                 Console.WriteLine();
 
-//             System.Console.WriteLine();
+//                 Pedestrian pedestrian = new Pedestrian();
+//                 signal.ChangeSignal("Red");
+//                 pedestrian.Move();
 
-//             Pedestrian pedestrian = new Pedestrian();
-//             signal.ChangeSignal("Red");
-//             pedestrian.Move();
+//                 Console.WriteLine();
 
-//             System.Console.WriteLine(); 
+//                 signal.ChangeSignal("Green");
+//                 Console.WriteLine("Now on green signal all the vehicles started moving, so to insure safety");
+//                 pedestrian.Stop();
 
-//             signal.ChangeSignal("Green");
-//             System.Console.WriteLine("Now on green signal all the vehicles started moving , so to insure safety");
-//             pedestrian.Stop();
+//                 Console.WriteLine();
 
-//             System.Console.WriteLine();
-
-//             signal.ChangeSignal("Yellow");
-//             pedestrian.InteractWithTrafficSignals();
-
-
-
+//                 signal.ChangeSignal("Yellow");
+//                 pedestrian.InteractWithTrafficSignals();
+//             }
+//             catch (Exception ex)
+//             {
+//                 Console.WriteLine($"An error occurred: {ex.Message}");
+//             }
 //         }
 //     }
 // }
