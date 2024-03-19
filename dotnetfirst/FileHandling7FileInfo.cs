@@ -6,27 +6,25 @@
 // {
 //     public static void Main(string[] args)
 //     {
-
 //         try
 //         {
 //             string path = "d.txt";
 //             string fullpath = Path.GetFullPath(path);
-
 //             FileInfo fileInfo = new FileInfo(fullpath);
 
 //             // creating an empty file
 //             fileInfo.Create();
 //             System.Console.WriteLine("file created successfully");
 
-
 //             // writing to a file using StreamWriter class
 
 //             StreamWriter StreamWriter = fileInfo.CreateText();
-//             StreamWriter.Write("Radhe Radhe Ji");
-
+//             // StreamWriter.Write("Radhe Radhe Ji");
+//             for(char i='A';i<='Z';i++){
+//                 StreamWriter.Write(i);
+//             }
 //             StreamWriter.Close();
 //             System.Console.WriteLine("written successfully");
-
 
 //             // reading from file using StreamReader
 
@@ -37,7 +35,6 @@
 //             {
 //                 System.Console.WriteLine(data);
 //             }
-
 //         }
 //         catch (IOException e)
 //         {
@@ -45,5 +42,11 @@
 //         }
 //     }
 // }
+
+
+
+
+
+
 
  
