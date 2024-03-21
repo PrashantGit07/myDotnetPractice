@@ -5,29 +5,24 @@
 
 //means we can pass diffrent arguments of diffrent data types in same function at the runtime using generics
 
-
 // using System;
+// class Hello<TId , TName>
+// {
+//     public TId Id { get; set; }
+//     public TName Name { get; set;}
 
-// class UsingGenerics<T>{
-
-//     public T id{get;set;}
-
-//     public void Display(T id){
-//         System.Console.WriteLine("the id is "+ this.id);
+//     public void Display(TId id, TName name)
+//     {
+//         this.Name = name;
+//         this.Id = id;
+//         System.Console.WriteLine("Id is " + id + ", Name is " + name);
 //     }
 // }
-
-// class Answer{
+// class MainClasS
+// {
 //     public static void Main(string[] args)
 //     {
-//         UsingGenerics<int> us = new UsingGenerics<int>();
-//         us.Display(10);
-
-//         UsingGenerics<char> uc = new UsingGenerics<char>();
-//         uc.Display('A');
-
-
-//         // UsingGenerics<string> us = new UsingGenerics<string>();
-//         // us.Display("hello ji");
+//         Hello<int,string> hello = new Hello<int,string>();
+//         hello.Display(45 , "Naam");
 //     }
 // }

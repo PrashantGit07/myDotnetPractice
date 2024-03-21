@@ -1,34 +1,34 @@
 
 
-// // You are tasked with creating a simple application that simulates a basic inventory management system using .NET Core.
+// You are tasked with creating a simple application that simulates a basic inventory management system using .NET Core.
 
-// // The application should be able to perform the following operations:
+// The application should be able to perform the following operations:
 
-// // 1. Add a new item to the inventory. Each item should have a unique ID, name, and quantity.
-// // 2. Remove an item from the inventory using its unique ID.
-// // 3. Update the quantity of an item in the inventory.
-// // 4. Display all items in the inventory.
+// 1. Add a new item to the inventory. Each item should have a unique ID, name, and quantity.
+// 2. Remove an item from the inventory using its unique ID.
+// 3. Update the quantity of an item in the inventory.
+// 4. Display all items in the inventory.
 
-// // Please ensure to incorporate the following elements in your solution:
+// Please ensure to incorporate the following elements in your solution:
 
-// // - Use 'Control Statements' to navigate through different options like adding, removing, updating, and displaying the inventory items.
-// // - Handle any potential exceptions, such as trying to remove an item that doesn't exist in the inventory or updating the quantity to a negative number, using 'Exception Handling'.
-// // - Use 'Collections' to store the inventory items.
-// // - Organize your code into different 'Namespaces' based on the functionality, like one for handling the inventory operations and another for the main program flow.
-
-
-
-// //Solution begins here--------------------------------------- 
+// - Use 'Control Statements' to navigate through different options like adding, removing, updating, and displaying the inventory items.
+// - Handle any potential exceptions, such as trying to remove an item that doesn't exist in the inventory or updating the quantity to a negative number, using 'Exception Handling'.
+// - Use 'Collections' to store the inventory items.
+// - Organize your code into different 'Namespaces' based on the functionality, like one for handling the inventory operations and another for the main program flow.
 
 
-// //Defining a namespace under which all related classes will be kept
+
+//Solution begins here--------------------------------------- 
+
+
+//Defining a namespace under which all related classes will be kept
 // namespace InventryManagementAssesment
 // {
 
 //     //class for inventory Items and operations that to be done on items
 //     class InventoryItemsClass
 //     {
-//         public int Id { get; set; }
+//         private int Id { get; set; }
 //         public string? name { get; set; }
 //         public int quantity { get; set; }
 
@@ -45,7 +45,7 @@
 //             {
 //                 Id = id + 5,
 //                 name = name,
-//                 quantity = quantity  
+//                 quantity = quantity
 //             };
 //             inventoryItems.Add(inventoryItems2);
 //             System.Console.WriteLine("Item Added successfully");
@@ -86,7 +86,7 @@
 
 //             //here i took a variable removeItem of class type and assigned to null initially , because i can assign it to the item which need to be removed and later using this variable (which now has the exact item that i want to remove) i can remove the item from the list
 
-//             InventoryItemsClass removeItem = null;
+//             InventoryItemsClass? removeItem = null;
 
 //             foreach (var item in inventoryItems)
 //             {
@@ -130,8 +130,8 @@
 
 
 
-//             //here i took a variable removeItem of class type and assigned to null initially , because i can assign it to the item which need to be updated and later using this variable (which now has the exact item that i want to remove) i can Update the item in the list
-//             InventoryItemsClass updateItem = null;
+//             //here i took a variable  updateItem of class type and assigned to null initially , because i can assign it to the item which need to be updated and later using this variable (which now has the exact item that i want to remove) i can Update the item in the list
+//             InventoryItemsClass? updateItem = null;
 
 //             foreach (var items in inventoryItems)
 //             {

@@ -1,5 +1,5 @@
-// // checked exception -->> int this exception when arithmatic overflow happens , an exception is thrown explicitly
-// // unchecked expection --> in this exception when arithmatic overflow happends , it is ignored and a garbage value comes as output
+// checked exception -->> int this exception when arithmatic overflow happens , an exception is thrown explicitly
+// unchecked expection --> in this exception when arithmatic overflow happends , it is ignored and a garbage value comes as output
 
 // using System;
 // class Program{
@@ -12,7 +12,7 @@
 //     }
 // }
 
-// // output -->>Unhandled exception. System.OverflowException: Arithmetic operation resulted in an overflow.
+// output -->>Unhandled exception. System.OverflowException: Arithmetic operation resulted in an overflow.
 
 // using System;
 // class Program{
