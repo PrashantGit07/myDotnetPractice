@@ -1,0 +1,58 @@
+//Every Application has one single main thread whihc is responsible for excuting methods one by one
+// so every applcation is a single threaded model by default
+//but in this case CPU becomes idle if a task is taking much time , 
+
+
+//so here operating system comes with the conecpt of Multithreadig
+//Advantage - maximum utilisation of CPU
+
+using System;
+class Program
+{
+    static void Display()
+    {
+        for (int i = 0; i < 50; i++)
+        {
+            System.Console.WriteLine("Thread 1 : " + i);
+        }
+    }
+    static void Display2()
+    {
+        for (int i = 0; i < 50; i++)
+        {
+            if (i == 15)
+            {
+                System.Console.WriteLine("Thread going to sleep for 10 seconds");
+                Thread.Sleep(10000);
+                System.Console.WriteLine("Thread woke up after 10 seconds");
+            }
+            System.Console.WriteLine("Thread 2 : " + i);
+        }
+    }
+    static void Display3()
+    {
+        for (int i = 0; i < 50; i++)
+        {
+            System.Console.WriteLine("Thread 3 : " + i);
+        }
+    }
+
+    public static void Main(string[] args)
+    {
+        // Display();
+        // Display2();
+        // Display3();
+
+        //now this is how single threaded works but it will make cpu  idle in case of Display2(){} method becuase it will stop for some seconds
+
+        //now we will use multithreaded system
+
+        Thread t1 = new Thread(Display);
+        Thread t2 = new Thread(Display2);
+        Thread t3 = new Thread(Display3);
+
+        t1.Start();
+        t2.Start();
+        t3.Start();
+    }
+}

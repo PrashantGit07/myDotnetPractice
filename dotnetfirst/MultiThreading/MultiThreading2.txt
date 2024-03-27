@@ -1,0 +1,58 @@
+// Understanding the parameteres of thread class
+using System;
+class Program
+{
+    public static void Display()
+    {
+        for (int i = 0; i < 50; i++)
+        {
+            System.Console.WriteLine(i);
+        }
+    }
+
+
+    // To use paramterized threadstart delegate , we will make a method with parameter of object type because parameterized threadstart accepts object types only
+    public static void Display2(object mx)
+    {
+        int n = Convert.ToInt32(mx);
+        for (int i = 0; i < n; i++)
+        {
+            System.Console.WriteLine(i);
+        }
+    }
+    public static void Main(string[] args)
+    {
+        // we have 4 constructors in thread class , two are important
+        // Threadstart and parameterized Threadstart
+        // they are delegate - a type safe function pointer using which we can call a method , signature of method and delegate must be same
+        // here we have void method without parameter , so we will use threadstart delegate with no parameter
+
+        // we have three steps - instantiating a delegate 
+        //                       binding a method with delegate
+
+        ThreadStart obj = new ThreadStart(Display);    //1   
+        Thread t = new Thread(obj);                    //2
+
+        // we can avoid doing step one , we can directly pass the delegate to the method , the instanitiation  process is done by CLR internally
+
+
+        // we can also do-
+        // ThreadStart obj = delegate{Display();};
+        // Thread t = new Thread(obj);
+
+
+        // ThreadStart obj =()=>Display();   --we can also write like this in case of anonymous function
+
+
+        // Thread t = new Thread(Display);
+        t.Start();
+
+
+
+        // Using parametrized threadstart delegate
+        // ParameterizedThreadStart obj = new ParameterizedThreadStart(Display2);
+
+        // Thread t = new Thread(obj);
+        t.Start(45);
+    }
+}

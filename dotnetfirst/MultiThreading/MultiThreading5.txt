@@ -1,0 +1,44 @@
+using System;
+class Program
+{
+    public static bool StopExcution = false;
+    public static void COunter1()
+    {
+        int cnt1 = 0;
+        while (!StopExcution)
+        {
+            cnt1++;
+        }
+    }
+    public static void COunter2()
+    {
+        int cnt2 = 0;
+        while (!StopExcution)
+        {
+            cnt2++;
+        }
+    }
+
+    public static void Main(string[] args)
+    {
+
+        Thread t1 = new Thread(COunter1);
+        Thread t2 = new Thread(COunter2);
+
+        t1.Priority = ThreadPriority.Lowest;
+        t2.Priority = ThreadPriority.Highest;
+
+        t1.Start();
+        t2.Start();
+
+
+        System.Console.WriteLine("Main thread going to sleep");
+        Thread.Sleep(10000);
+        System.Console.WriteLine("Main thread woke up");
+
+        StopExcution = true;   //to stopExcution the thread , we can not use Abort due to some potential issues
+        t1.Join();
+        t2.Join();
+    }
+}
+

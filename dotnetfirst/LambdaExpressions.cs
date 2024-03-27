@@ -1,0 +1,85 @@
+// using System;
+// class StringFilter
+// {
+//     public static void Main(string[] args)
+//     {
+//         List<string> ls = new List<string>()
+//         {
+//             "Akash Singh",
+//             "Prashant Mishra",
+//             "Akay Kohli",
+//             "Nishant ",
+//             "Alfred Nobel",
+//             "David Dea",
+//             "John Doe",
+//             "Abrar khan",
+//         };
+
+//         List<string> resultListt = ls.Where(c => c.StartsWith("A")).ToList();
+//         foreach (var items in resultListt)
+//         {
+//             System.Console.WriteLine(items);
+//         }
+//     }
+// }            
+
+// using System;
+// class Program
+// {
+//     public static void Main(string[] args)
+//     {
+
+//         string[] arr = {"Akash Singh","Prashant Mishra", "Akay Kohli","Nishant ",  "Alfred Nobel", "David Dea", "John Doe", "Abrar khan",};
+
+//        Array.Sort(arr , (a,b)=> a.CompareTo(b));
+//. The lambda expression (a,b) => a.CompareTo(b) is passed for the comparison . The lambda expression compares two strings a and b and returns an integer indicating their relative order. The Sort method then uses this comparison function to sort the array. 
+
+//        foreach(var items in arr){
+//         System.Console.WriteLine(items);
+//        }
+//     }
+// }
+
+
+
+
+
+
+// using System;
+// class Program{
+//     public static void Main(string[] args)
+//     {
+//         List<int> ls = new List<int>(){
+//             4,5,10,54,6,21,32,7,01,30,8,9,2,45,12,36
+//         };
+//         List<int> res = ls.Where(e=>e>10).ToList();
+//         foreach(var items in res)
+//         {
+//             System.Console.WriteLine(items);
+//         }
+//     }
+// }
+
+
+
+//We can use Func delegate to combine more than one lambda expressions into one
+// using System;
+// class Program
+// {
+//     static void Main(string[] args)
+//     {
+
+
+//         Func<int, int> l1 = a => a * 2;
+//         Func<int, int> l2 = a => a + 10;
+
+//         Func<int, int> result = a => l1(l2(a));
+
+
+//         System.Console.Write("Emter a number  :");
+//         int n = Convert.ToInt32(Console.ReadLine());
+
+//         System.Console.WriteLine("Cmobined result is : " + result(n));
+
+//     }
+// }

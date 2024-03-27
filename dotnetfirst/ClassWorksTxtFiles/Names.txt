@@ -1,0 +1,17 @@
+using System;
+class Program{
+    public static void Main(string[] args){
+        List<string> names = new List<string>{"Akash" , "Ravi" , "Amit" , "Akaay" , "Ashish" , "Rohan" , "Shashank"};
+
+        Func<string, bool> res = n=>n.StartsWith("A");
+        
+        List<string> result = names.Where(res).ToList();
+
+        System.Console.WriteLine("Names starting with A : ");
+        foreach (string name in result)
+        {
+            System.Console.WriteLine(name);
+            System.Console.WriteLine();
+        }
+    }
+}

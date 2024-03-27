@@ -1,0 +1,99 @@
+using System;
+using System.Collections.Generic;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+
+class CreateFileClas
+{
+    static Dictionary<int, string> tasks = new Dictionary<int, string>();
+
+    public static void Main(string[] args)
+    {
+
+        string path = "t.txt";
+        string fullpath = Path.GetFullPath(path);
+
+        FileInfo fileInfo = new FileInfo(fullpath);
+
+        // fileInfo.Create();
+        // using (fileInfo.Create())
+        // {
+        //     Console.WriteLine("File created successfully");
+        // }
+
+        bool exitTask = false;
+
+        do
+        {
+            System.Console.WriteLine("Enter your choice");
+
+            System.Console.WriteLine("1- Add task in file");
+            System.Console.WriteLine("2 - Remove task from file");
+            System.Console.WriteLine("3 - view tasks of file");
+            System.Console.WriteLine("4 - exit");
+
+            int choice = Convert.ToInt32(Console.ReadLine());
+
+
+            switch (choice)
+            {
+                case 1:
+                    AddTask(fullpath);
+                    break;
+                case 2:
+                    RemoveTaskFromFile(fullpath);
+                    break;
+                case 4:
+                    exitTask = false;
+                    Environment.Exit(0);
+                    break;
+            }
+
+        } while (!exitTask);
+
+    }
+    public static void AddTask(string filepath)
+    {
+        System.Console.WriteLine("Enter the task you want to add :");
+        string? task = Console.ReadLine();
+        int id = new Random().Next(1, 10);
+
+        tasks.Add(id, task ?? "");
+
+
+
+        string jsonData = JsonSerializer.Serialize(tasks);
+        // System.Console.WriteLine(jsonData);
+
+        // File.WriteAllText(filepath, jsonData);
+        //using WriteAllText will erase exisiting data if u want to add one more task  , we will use AppendAllText instead
+
+        File.AppendAllText(filepath, jsonData + Environment.NewLine);
+        System.Console.WriteLine("Task Added successfully with id " + id);
+        System.Console.WriteLine("Task : " + task);
+    }
+
+    public static void RemoveTaskFromFile(string filepath)
+    {
+        System.Console.WriteLine("Enter the id of your task : ");
+        int id = Convert.ToInt32(System.Console.ReadLine());
+
+        string jsonData = File.ReadAllText(filepath);
+        tasks =  JsonSerializer.Deserialize<Dictionary<int,string>>(jsonData);
+        if(tasks.ContainsKey(id)){
+            tasks.Remove(id);
+            
+            string updatedData = JsonSerializer.Serialize(tasks);
+
+          File.WriteAllText(filepath , updatedData);
+
+          System.Console.WriteLine("task with id ->"+id + " removed from file");
+        }
+        else{
+            System.Console.WriteLine("Task not found");
+        }
+    }
+
+     
+}
+

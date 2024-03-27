@@ -1,0 +1,35 @@
+//Learning about Locks
+//we use Locks to prevent multiple threads to access the same resource at the same time
+
+using System;
+class LearningLocks
+{
+    public void Display()
+    {
+        lock (this)
+        {
+            System.Console.WriteLine("Hello from");
+            Thread.Sleep(5000);
+            System.Console.WriteLine("Bharat");
+        }
+    }
+
+    public static void Main(string[] args)
+    {
+        LearningLocks obj = new LearningLocks();
+
+        Thread t1 = new Thread(obj.Display);
+        Thread t2 = new Thread(obj.Display);
+        Thread t3 = new Thread(obj.Display);
+
+        t1.Start();   //now as we have used lock on Resource, the thread t1 will first access the resource and after the complete excution it will leave andt2 will access
+
+        // although when thread 1 will go to sleep , the controll will go to Thread 2 but iw will not be able to access the resource untill thread 1 completely gets executed
+
+        // same will be with Thread t3
+
+        t2.Start();
+        t3.Start();
+        Console.ReadLine();
+    }
+}

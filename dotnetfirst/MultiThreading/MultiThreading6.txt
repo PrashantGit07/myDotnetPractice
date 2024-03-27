@@ -1,0 +1,58 @@
+using System;
+using System.Diagnostics;
+class Program
+{
+    public static bool Stop = false;
+    public static void COunter1()
+    {
+        long cnt1 = 0;
+        for (long i = 0; i < 100000000000; i++)
+        {
+            cnt1++;
+        }
+        System.Console.WriteLine("Counter 1 : " + cnt1);
+    }
+    public static void COunter2()
+    {
+        long cnt2 = 0;
+        for (long i = 0; i < 100000000000; i++)
+        {
+            cnt2++;
+        }
+        System.Console.WriteLine("Counter 1 : " + cnt2);
+    }
+
+
+    public static void Main(string[] args)
+    {
+
+        Thread t1 = new Thread(COunter1);
+        Thread t2 = new Thread(COunter2);
+
+        //Comparing time taken in Single and Mutli threaded model
+        //We will use Stopwatch() class to calculate time taken
+
+        Stopwatch s1 = new Stopwatch();
+        Stopwatch s2 = new Stopwatch();
+
+
+        s1.Start();
+        COunter1();
+        COunter2();
+        s1.Stop();
+
+
+
+        s2.Start();
+        t1.Start();
+        t2.Start();
+        s2.Stop();
+
+        t1.Join();
+        t2.Join();
+
+        System.Console.WriteLine("Time taken by Single threaded model: " + s1.ElapsedMilliseconds);
+        System.Console.WriteLine("Time taken by Multiple threaded model: " + s2.ElapsedMilliseconds);
+    }
+}
+

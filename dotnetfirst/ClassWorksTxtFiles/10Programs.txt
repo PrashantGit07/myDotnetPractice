@@ -1,0 +1,246 @@
+//Q-1 -filter strings having more than 5 charcaters
+using System;
+class Program
+{
+    public static void Main(string[] args)
+    {
+        List<string> names = new List<string> { "Akash", "RaviTeja", "AmitBhadana", "Akaay", "Ashish", "Rom", "Shiv" , "John" , "Doe" , "hii" };
+        
+
+        //Using LINQ to filter
+
+        var Result = names.Where(w=>w.Length>=5);
+
+        System.Console.WriteLine("Names having more than 5 charactera :");
+        foreach(var w in Result){
+            System.Console.WriteLine(w);
+        }
+    }
+}
+
+
+
+
+
+
+
+
+//Q-2 find sum of all elements in the list of doubles
+
+using System;
+class Program
+{
+    public static void Main(string[] args)
+    {
+        List<double> elements = new List<double> { 20.0, 55.5, 44.7, 58.8, 45.78, 100.5, 65.34 };
+
+        double sum = elements.Sum();
+        System.Console.WriteLine("The sum is : " + sum);
+    }
+}
+
+
+
+
+
+
+//Q-3 convert list of integers to corresponding squared value
+
+using System;
+class Program
+{
+    public static void Main(string[] args)
+    {
+        List<int> ints = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+        //Using LINQ to calculate
+        var result = ints.Select(x => x * x);
+
+        foreach (var res in result)
+        {
+            System.Console.WriteLine("Sqaures : " + res);
+        }
+
+    }
+}
+
+
+
+
+
+
+
+//Q-4 - find avg of all even numbers in list of inetegers
+
+using System;
+class Program
+{
+    public static void Main(string[] args)
+    {
+        List<int> ints = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9,  20 , 30 , 44 , 56, 68 , 70 , 55 , 41 , 53 };
+
+        var evens = ints.Where(x=>x%2==0);
+
+        var result = evens.Average();
+        System.Console.WriteLine("Average of even numbers: " + result);
+    }
+}
+
+
+
+
+
+
+//Q-5 - Remove Duplicate strings from a list of strings
+
+using System;
+using Microsoft.VisualBasic;
+class Program
+{
+    public static void Main(string[] args)
+    {
+        List<string> names = new List<string> { "Akash", "Ravi", "Akash", "Akaay", "Ashish", "Akash", "Shashank", "Shashank", "Shashank", "Ravi", "Ravi" };
+
+        var duplicates = names.GroupBy(x => x).Where(g => g.Count() > 1).SelectMany(g => g);
+
+        foreach (var name in duplicates)
+        {
+            names.Remove(name);
+        }
+
+        System.Console.WriteLine("Unique names are : ");
+        foreach(var item in names){
+            System.Console.WriteLine(item);
+        }
+    }
+}
+
+
+
+
+
+
+//Q-6 - count the number of itegers that are greater than 100
+
+using System;
+using Microsoft.VisualBasic;
+class Program
+{
+    public static void Main(string[] args)
+    {
+        List<int> items = new List<int> { 100, 200, 300, 40, 50, 60, 700, 500, 25, 36, 102, 108, 1090, 112 };
+
+        var elem = items.Where(x=>x>100);
+        int cnt=0;
+        foreach(var i in elem){
+            cnt++;
+        }
+
+        System.Console.WriteLine("Total numbers that are greater than 100 is :  " + cnt);
+    }
+}
+
+
+
+
+
+
+
+
+//Q-7 - Convert list of strings to uppercase 
+
+using System;
+using Microsoft.VisualBasic;
+class Program
+{
+    public static void Main(string[] args)
+    {
+        List<string> names = new List<string> { "akash", "ravi", "amit", "akaay", "ashish", "rohan", "Shashank" };
+
+        var res = names.Select(x => x.ToUpper());
+        System.Console.WriteLine("Uppercase strings: ");
+        foreach (var x in res)
+        {
+            System.Console.WriteLine(x);
+        }
+    }
+}
+
+
+
+
+
+
+//Q-8 - Find maximum in the list of integers
+
+using System;
+using Microsoft.VisualBasic;
+class Program
+{
+    public static void Main(string[] args)
+    {
+        List<int> items = new List<int> { 100, 200, 300, 40, 50, 60, 700, 500, 25, 36, 102, 108, 1090, 112 };
+
+        int mx = items.Max();
+        System.Console.WriteLine("Maximum number is  :" + mx);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+//Q-9 - check if any string in the list starts with A
+
+
+using System;
+using Microsoft.VisualBasic;
+class Program
+{
+    public static void Main(string[] args)
+    {
+        List<string> names = new List<string> { "Akash", "Ravi", "Akash", "Akaay", "Ashish", "Akash", "Shashank", "Shashank", "Shashank", "Ravi", "Ravi" };
+
+        var res = names.Where(x=>x.StartsWith("A"));
+
+        System.Console.WriteLine("Letters starting with A is  :");
+        foreach(var items in res){
+            System.Console.WriteLine(items);
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+//Q-10 - Sort a string Alphabetically
+
+
+using System;
+using Microsoft.VisualBasic;
+class Program
+{
+    public static void Main(string[] args)
+    {
+        List<string> names = new List<string> { "Akash", "Ravi", "Amit", "Akaay", "Ashish", "Rohan", "Shashank" };
+
+        //using Order by of LINQ
+        var res = names.OrderBy(x => x);
+
+        System.Console.WriteLine("Sorted string is : ");
+        foreach (var items in res)
+        {
+            System.Console.WriteLine(items);
+        }
+    }
+}
