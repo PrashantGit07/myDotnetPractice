@@ -1,0 +1,270 @@
+Q-1 FizzBuzz program
+
+using System;
+class Program
+{
+    public static void Main(string[] args)
+    {
+        var n = Enumerable.Range(1, 100);
+
+        n.ToList().ForEach(a =>
+        {
+            string ans = "";
+
+            if (a % 3 == 0)
+            {
+                ans += "Fizz";
+            }
+            if (a % 5 == 0)
+            {
+                ans += "Buzz";
+            }
+            
+            if (ans == "")
+            {
+                System.Console.WriteLine(a.ToString());
+            }
+            else
+            {
+                System.Console.WriteLine(ans);
+            }
+        });
+
+
+    }
+}
+
+
+
+
+
+
+
+Q-2 - calculate Factorial of a number
+
+using System;
+class Program
+{
+    public static void Main(string[] args)
+    {
+        System.Console.WriteLine("Enter a number  :");
+        int n = Convert.ToInt32(Console.ReadLine());
+
+      Func<int,int> fact  = x=>Factorial(x);
+
+      int result = fact(n); 
+      System.Console.WriteLine("Factorial is : "+ result);
+    }
+
+    static int Factorial(int n)
+    {
+        if(n==0 || n==1) return 1;
+        else return n*Factorial(n-1);
+    }
+}
+
+
+
+
+Q-3 Reverse a string
+
+
+using System;
+class Program
+{
+    public static void Main(string[] args)
+    {
+        System.Console.Write("Enter a string :");
+        string s = Console.ReadLine()??"";
+
+        Func<string,string> rev = x=>ReverseString(x);
+        var res = rev(s);
+
+        System.Console.WriteLine("Reverse string is :" + res);
+
+    }
+    static string ReverseString(string s)
+    {
+
+        char[] rev = new char[s.Length];
+        int idx=0;
+        for(int i=s.Length-1;i>=0;i--)
+        {
+            rev[idx++] = s[i];
+        }
+
+        return new string(rev);
+    }
+}
+
+Enter a string :hello world
+Reverse string is :dlrow olleh
+
+
+
+
+
+
+
+Q-4 Check if a given number is prime or not 
+
+using System;
+class Program
+{
+    public static void Main(string[] args)
+    {
+        int n = 17;
+        Func<int,bool>prime = a=>{
+            if(a<=1) return false;
+            if(a==2 || a==3) return true;
+
+            return Enumerable.Range(2 , (int)Math.Sqrt(n)-1).All(i=>a%i!=0);
+        };
+
+        bool yes = prime(n);
+
+        if(yes){
+            System.Console.WriteLine("It is prime");
+        }
+        else{
+            System.Console.WriteLine("Not prime");
+        }
+    }
+}
+
+
+
+
+
+
+Q-5 Find the maximum number from array of inetegers
+
+
+using System;
+class Program
+{
+    public static void Main(string[] args)
+    {
+        int[] arr = { 4, 5, 1, 2, 0, 8, 12, 54, 2, 3, 6, 1 };
+        
+        Func<int[],int> func = nums=>nums.Max();
+
+        var result = func(arr);
+        System.Console.WriteLine("Maximum number  in array: " + result);
+    }
+}
+
+Maximum number  in array: 54
+
+
+
+
+
+
+Q-6 calculate sum of digits of a positive number entered by user
+
+using System;
+class Program
+{
+    public static void Main(string[] args)
+    {
+        System.Console.WriteLine("Enter a positive number ");
+        int n = Convert.ToInt32(Console.ReadLine());
+        if (n < 0)
+        {
+            System.Console.WriteLine("Please enter a positive number");
+        }
+        else
+        {
+            Func<int,int> FindSum = a =>{
+                int sum=0;
+
+                while(a>0){
+                    sum+=a%10;
+                    a/=10;
+                }
+                return sum;
+            };
+
+            int result = FindSum(n);
+
+            System.Console.WriteLine("Sum of digits: " + result);
+        }
+    }
+}
+
+
+Enter a positive number 
+122
+Sum of digits: 5
+
+
+
+
+
+
+Q-7 Palindrome Check
+
+
+using System;
+class Program
+{
+    public static void Main(string[] args)
+    {
+        string s = "JahaJ";
+
+        Func<string, bool> YesPaldindrome = x =>
+        {
+
+            string s2 = new string(x.Reverse().ToArray());
+
+            return s == s2 ? true : false;
+        };
+
+        bool yes = YesPaldindrome(s);
+        if (yes)
+        {
+            System.Console.WriteLine("it is palindrome");
+        }
+        else
+        {
+            System.Console.WriteLine("not a palindrome");
+        }
+    }
+}
+
+
+it is palindrome
+
+
+
+
+
+
+
+
+
+Q-8 String Concatnatenation
+
+
+class Program
+{
+    public static void Main(string[] args)
+    {
+        System.Console.Write("enter string 1 :");
+        string s1 = Console.ReadLine()??"";
+        System.Console.Write("enter string 2 :");
+        string s2 = Console.ReadLine()??"";
+        
+
+        Func<string,string,string> concate = (a,b)=>a+b;
+
+        string output = concate(s1,s2);
+        System.Console.WriteLine("Resultant string is : " + output);
+
+    }
+}
+
+
+enter string 1 :helo
+enter string 2 :world

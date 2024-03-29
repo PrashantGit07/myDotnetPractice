@@ -1,0 +1,349 @@
+//Q-1 group a list of strings by their lenght and sort them
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        List<string> ls = new List<string>{
+            "apple",
+            "banana",
+            "orange",
+            "cat",
+            "dog",
+            "elephant",
+            "car",
+            "bike",
+            "bus"
+        };
+
+        var res = ls.GroupBy(s => s.Length)
+                    .OrderBy(g => g.Key)
+                    .Select(g => g.OrderBy(s => s));
+
+        foreach (var item in res)
+        {
+            Console.WriteLine("Group of length : " + item.First().Length);
+            foreach (var it in item)
+            {
+                Console.WriteLine(it);
+            }
+        }
+    }
+}
+
+
+Group of length : 3
+bus
+car
+cat
+dog
+Group of length : 4
+bike
+Group of length : 5
+apple
+Group of length : 6
+banana
+orange
+Group of length : 8
+elephant
+
+
+
+
+
+
+
+Q-2  Find the second highest element without sorting
+
+
+using System;
+ 
+class Program
+{
+    static void Main(string[] args)
+    {
+        List<int> ls = new List<int>{2, 9, 11,4, 5, 8, 1 };
+
+        int fmx = ls.Max();
+
+        int smx = ls.Where(x=>x !=fmx).DefaultIfEmpty(int.MinValue).Max();
+        if(smx ==int.MinValue){
+            System.Console.WriteLine("No minimum value found , so default of min will be returned");
+        }
+        else{
+            System.Console.WriteLine("Second highest element : "  + smx);
+        }
+
+    }
+}
+
+Second highest element : 9
+
+
+
+
+
+
+Q-3 Merge two list of integers by selecting minimum value from each corresponding pair of elements
+
+class Program
+{
+    static void Main(string[] args)
+    { 
+        List<int> l1 = new List<int>{4,5,8,1,6,2,7,12,3,9};
+        List<int> l2 = new List<int>{8,4,10,20,13,5,1,6,2};
+
+       List<int> res = l1.Zip(l2 , (a,b)=>Math.Min(a,b)).ToList();
+       System.Console.WriteLine("Resulting list : ");
+
+       foreach(var items in res){
+        System.Console.Write(items + " ");
+       }
+
+    }
+}
+
+zip method takes both list/sequence and uses method Math.Min(a,b) , where a and b are the numbers of each list which form pair
+
+Resulting list : 
+4 4 8 1 6 2 1 6 2 
+
+
+
+
+
+Q4 - Find all pairs of numbers in a list whose sum is equal to target value
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+class Program
+{
+    static void Main(string[] args)
+    { 
+        List<int> l1 = new List<int>{4, 5, 8, 1, 6, 2, 7, 12, 3, 9};
+        int t = 9;
+
+        var p = l1.SelectMany((x, i) => l1.Skip(i + 1).Select(y => new { First = x, Second = y }))
+                  .Where(pair => pair.First + pair.Second == t);
+
+        Console.WriteLine("Pairs equal to target: " + t);
+        foreach(var items in p)
+        {
+            Console.WriteLine(items.First + "  " + items.Second);
+        }
+    }
+}
+
+Pairs equal to target: 9
+4  5
+8  1
+6  3
+2  7
+
+SelectMany method:
+
+SelectMany applies a transformation to each element of the numbers list and flattens the resulting sequences into one sequence.
+(x, i) represents a lambda expression parameter where x is the element of the list and i is its index.
+For each element x in the numbers list, it generates a sequence of pairs with all elements that come after it.
+numbers.Skip(i + 1) skips the elements before the current element x to avoid repeating pairs.
+.Select(y => new { First = x, Second = y }) creates a new anonymous object for each pair, where First is the current element x and Second is an element y from the elements after x.
+
+
+
+
+
+Q-5 - calculate factorial of each number in a list
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        List<int> l1 = new List<int> { 4, 5, 8, 1, 6, 2 };
+
+        var res = l1.Select(n=>Fact(n));
+        foreach( var items in res)
+        {System.Console.WriteLine("The Facotrial is : " + items);}
+    }
+
+    static int Fact(int n)
+    {
+        if (n == 0 || n == 1)
+        {
+            return 1;
+        }
+        else
+        {
+            return Enumerable.Range(1, n).Aggregate((x, y) => x * y);
+        }
+    }
+
+}
+
+
+The Facotrial is : 24
+The Facotrial is : 120
+The Facotrial is : 40320
+The Facotrial is : 1
+The Facotrial is : 720
+The Facotrial is : 2
+
+
+
+Enumerable creates a range from 1 to the currrent number , and then aggregate method is used to aggregate element , here it takes x and y as arguments and multiplies them , x is curretn accumulated value and y is the next value in the range
+
+
+
+
+
+Q-6  check if all strings in a list contains atleast one digit
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        List<string> ls = new List<string> { "abc123", "def456", "ghi", "789jkl" };
+
+
+        bool digit = ls.All(s=>s.Any(char.IsDigit));
+
+        if(digit){
+            System.Console.WriteLine("All strings have atleast a digit");
+        }
+        else{
+            System.Console.WriteLine("Not all strings have digit");
+        }
+    }
+
+}
+
+
+Not all strings have digit
+
+
+All method checks if all elements satisfy the conditon or Not
+Any(char.digit) checkes if any character is number or Not
+
+
+
+
+
+
+
+
+Q-7 - Concatnate all strings of list with a specified delimiter
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        List<string> ls = new List<string> { "apple", "banana", "orange", "kiwi" };
+        string d = "&";
+
+
+        string res = string.Join(d , ls);
+        System.Console.WriteLine("Resultant string is : " + res);
+    }
+
+}
+
+
+Resultant string is : apple&banana&orange&kiwi
+
+
+
+
+Q-8 check if a string is palindrome or not
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        string s = "Naman";
+
+        bool yes = s.SequenceEqual(s.Reverse());
+        if (yes)
+        {
+            System.Console.WriteLine("Palindrome");
+        }
+        else
+        {
+            System.Console.WriteLine("Not a Palindrome");
+        }
+    }
+
+}
+It is a Palindrome
+
+
+
+
+
+
+Q-9 - Write a custom logic of sorting where strings cotaining digits come after strings without digits and within each group strings are sorted 
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        List<string> ls = new List<string> { "apple", "banana", "123orange", "kiwi", "apple123" };
+
+        ls.Sort((s1, s2) =>
+        {
+            bool d1 = s1.Any(char.IsDigit);
+            bool d2 = s2.Any(char.IsDigit);
+
+            if(d1 && !d2){
+                return 1;
+            }
+            if(d2 && !d1){return -1;}
+
+            return string.Compare(s1,s2);
+        });
+
+        System.Console.WriteLine("Sorted strings : ");
+        foreach(var items in ls){
+            System.Console.WriteLine(items);
+        }
+    }
+
+}
+
+Sorted strings : 
+apple
+banana
+kiwi
+123orange
+apple123
+
+ 
