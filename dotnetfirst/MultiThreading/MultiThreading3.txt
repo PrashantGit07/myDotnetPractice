@@ -45,7 +45,7 @@ class Program
         // t1.Start(); t2.Start(); t3.Start();
         // System.Console.WriteLine("Main thread exiting");    // now in this case the main thread will exit in the middle of the excution and rest the remaining threads will be excuted by time sharing 
 
-        // but we want to start main thread at start of the excutio  and stop at the end of the excution
+        // but we want to start main thread at start of the excution  and stop at the end of the excution
 
         // so we will use Join()
 
