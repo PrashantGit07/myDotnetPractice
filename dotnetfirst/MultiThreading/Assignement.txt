@@ -1,0 +1,47 @@
+using System;
+class ThreadExample
+{
+
+    static object obj = new object();
+    static void CaluLcateFactorial(object n)
+    {
+        int num = (int)n;
+        int f = 1;
+        lock (obj)
+        {
+            for (int i = 1; i <= num; i++)
+            {
+                f *= i;
+            }
+            System.Console.WriteLine("The factorial of " + num + " is -> " + f);
+
+        }
+    }
+
+    static void Display()
+    {
+        System.Console.WriteLine("This is thread 2");
+        for (int i = 0; i < 10; i++)
+        {
+            System.Console.WriteLine("thread " + i);
+            Thread.Sleep(1000);
+        }
+        System.Console.WriteLine("Thread 2 done");
+    }
+    static void Main(string[] args)
+    {
+        Thread t1 = new Thread(new ParameterizedThreadStart(CaluLcateFactorial));
+
+        Thread t2 = new Thread(Display);
+        t2.Start();
+        System.Console.WriteLine("Enter a number : ");
+        int n = Convert.ToInt32(Console.ReadLine());
+        t1.Start(n);
+
+
+        t1.Join();
+        t2.Join();
+        System.Console.WriteLine("Main thread finished ");
+
+    }
+}
